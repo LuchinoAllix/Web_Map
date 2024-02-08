@@ -1,5 +1,5 @@
 # Wiki_Map
-Le but de ce projet est de créer une carte 2D de wikipédia à traver un graph.
+Le but de ce projet est de créer une carte (réduite) 2D de Wikipédia à traver un graph.
 
 ## Plan
 1) Télécharger le contenu d'une page wiki
