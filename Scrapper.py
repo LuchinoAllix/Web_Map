@@ -56,8 +56,14 @@ def get_all_website_links(url,choice="all"):
 	
 def filter(urls):
 	filtered = set()
+	filters = ["Category","Wikipedia","ISBN","Special","File"]
 	for url in urls :
-		if "Category" not in url and "Wikipedia" not in url and "ISBN" not in url and "SpecialBookSources" not in url :
+		ok = True
+		for filter in filters :
+			if filter in url :
+				ok = False
+				break
+		if ok :
 			filtered.add(url)
 		
 	return filtered
@@ -84,10 +90,11 @@ def crawl(url, max_urls):
 if __name__ == "__main__":
 	max_urls=30
 	urls = get_all_website_links("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence","intern")
-	print(len(urls))
+	
 	furls = filter(urls)
 	for i in furls :
-		print(str(i)+"\n")
+		print(i)
+	print(len(urls))
 	print(len(furls))
 
 	#crawl("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence",max_urls)
