@@ -40,7 +40,7 @@ def get_all_website_links(url,choice="all"):
 			if href not in external_urls:
 				print(f"{GRAY}[!] External link: {href}{RESET}")
 				external_urls.add(href)
-		else :
+		elif href not in internal_urls:
 			print(f"{GREEN}[*] Internal link: {href}{RESET}")
 			internal_urls.add(href)
 		urls.add(href)
@@ -54,7 +54,13 @@ def get_all_website_links(url,choice="all"):
 	else :
 		raise ValueError("Choice must be \"all\", \"intern\" or \"extern\"")
 	
-
+def filter(urls):
+	filtered = set()
+	for url in urls :
+		if "Category" not in url and "Wikipedia" not in url and "ISBN" not in url and "SpecialBookSources" not in url :
+			filtered.add(url)
+		
+	return filtered
 
 # number of urls visited so far will be stored here
 total_urls_visited = 0
@@ -77,6 +83,12 @@ def crawl(url, max_urls):
 
 if __name__ == "__main__":
 	max_urls=30
-	get_all_website_links("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence","intern")
+	urls = get_all_website_links("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence","intern")
+	print(len(urls))
+	furls = filter(urls)
+	for i in furls :
+		print(str(i)+"\n")
+	print(len(furls))
+
 	#crawl("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence",max_urls)
 
