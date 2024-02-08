@@ -13,7 +13,7 @@ YELLOW = colorama.Fore.YELLOW
 # Source :
 # https://thepythoncode.com/article/extract-all-website-links-python
 
-def get_all_website_links(url,choice="all"):
+def get_links(url,choice="all"):
 	"""
 	Returns all URLs that is found on `url` in which it belongs to the same website
 	"""
@@ -83,7 +83,7 @@ def crawl(url, max_urls):
 	global pages
 	total_urls_visited += 1
 	print(f"{YELLOW}[*] Crawling: {url}{RESET}")
-	links = get_all_website_links(url,"intern")
+	links = get_links(url,"intern")
 	for link in links:
 		if total_urls_visited > max_urls:
 			break
@@ -91,14 +91,13 @@ def crawl(url, max_urls):
 
 if __name__ == "__main__":
 	max_urls=30
-	urls = get_all_website_links("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence","intern")
+	urls = get_links("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence","intern")
 	
 	furls = filter(urls)
 	for i in furls :
 		print(i)
 	print(len(urls))
 	print(len(furls))
-	print(pages)
 
 	#crawl("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence",max_urls)
 
