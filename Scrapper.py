@@ -35,15 +35,17 @@ def get_all_website_links(url,choice="all"):
 		parsed_href = urlparse(href)
 		# remove URL GET parameters, URL fragments, etc.
 		href = parsed_href.scheme + "://" + parsed_href.netloc + parsed_href.path
-		if domain_name not in href:
-			# external link
-			if href not in external_urls:
-				print(f"{GRAY}[!] External link: {href}{RESET}")
-				external_urls.add(href)
-		elif href not in internal_urls:
-			print(f"{GREEN}[*] Internal link: {href}{RESET}")
-			internal_urls.add(href)
-		urls.add(href)
+		if filter(href):
+			if domain_name not in href:
+				# external link
+				if href not in external_urls:
+					print(f"{GRAY}[!] External link: {href}{RESET}")
+					external_urls.add(href)
+			elif href not in internal_urls:
+				print(f"{GREEN}[*] Internal link: {href}{RESET}")
+				internal_urls.add(href)
+			urls.add(href)
+
 	if choice=="all":
 		return url
 	elif choice=="intern":
@@ -54,22 +56,21 @@ def get_all_website_links(url,choice="all"):
 	else :
 		raise ValueError("Choice must be \"all\", \"intern\" or \"extern\"")
 	
-def filter(urls):
-	filtered = set()
+
+	
+def filter(url):
 	filters = ["Category","Wikipedia","ISBN","Special","File"]
-	for url in urls :
-		ok = True
-		for filter in filters :
-			if filter in url :
-				ok = False
-				break
-		if ok :
-			filtered.add(url)
-		
-	return filtered
+	res = True
+	for filter in filters :
+		if filter in url :
+			res = False
+			break
+	return res
+
 
 # number of urls visited so far will be stored here
 total_urls_visited = 0
+
 
 def crawl(url, max_urls):
 	"""
@@ -79,6 +80,7 @@ def crawl(url, max_urls):
 		max_urls (int): number of max urls to crawl, default is 30.
 	"""
 	global total_urls_visited
+	global pages
 	total_urls_visited += 1
 	print(f"{YELLOW}[*] Crawling: {url}{RESET}")
 	links = get_all_website_links(url,"intern")
@@ -96,6 +98,7 @@ if __name__ == "__main__":
 		print(i)
 	print(len(urls))
 	print(len(furls))
+	print(pages)
 
 	#crawl("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence",max_urls)
 
