@@ -92,6 +92,8 @@ def get_title(url):
 	(String) : le titre de la page
 	"""
 	segments = url.split('/')
+	if len(segments[-1])==0:
+		segments.pop()
 	return segments[-1].replace("_"," ")
 
 def add_to_pages(url,urls):
@@ -137,7 +139,7 @@ def crawl(url, max_urls):
 	
 if __name__ == "__main__":
 	max_urls=100
-	crawl("https://www.youtube.com/",max_urls)
+	crawl("https://www.geeksforgeeks.org/",max_urls)
 	shutil.rmtree("Logs")
 	os.makedirs("Logs")
 	for key in pages :
