@@ -7,7 +7,7 @@ import shutil
 # Variables globales
 pages = {}
 total_urls_visited = 0
-filters =[]
+filters =["html","tgz","png","svg","pkg","tar"]
 
 # Source :
 # https://thepythoncode.com/article/extract-all-website-links-python
@@ -33,6 +33,7 @@ def get_links(url,choice="all"):
 	try :
 		soup = BeautifulSoup(requests.get(url).content, "html.parser")
 	except :
+		print(url)
 		raise ValueError("Problem with URL")
 	
 	for a_tag in soup.findAll("a"):
@@ -128,7 +129,7 @@ def crawl(url, max_urls):
 	"""
 	global total_urls_visited
 	total_urls_visited += 1
-	print("- Crawling: "+ url)
+	print("["+str(total_urls_visited)+"] Crawling: "+ url)
 	links = get_links(url,"intern")
 	add_to_pages(url,links)
 	for link in links:
@@ -138,8 +139,8 @@ def crawl(url, max_urls):
 	
 	
 if __name__ == "__main__":
-	max_urls=100
-	crawl("https://www.geeksforgeeks.org/",max_urls)
+	max_urls=250
+	crawl("https://www.python.org/",max_urls)
 	shutil.rmtree("Logs")
 	os.makedirs("Logs")
 	for key in pages :
