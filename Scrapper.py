@@ -1,29 +1,18 @@
 import requests
 from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup
-import colorama
 import os
 import shutil
-
-# init the colorama module
-colorama.init()
-GREEN = colorama.Fore.GREEN
-GRAY = colorama.Fore.LIGHTBLACK_EX
-RESET = colorama.Fore.RESET
-YELLOW = colorama.Fore.YELLOW
 
 # Variables globales
 pages = {}
 total_urls_visited = 0
+filters =[]
 
 # Source :
 # https://thepythoncode.com/article/extract-all-website-links-python
 
 def get_links(url,choice="all"):
-	"""
-	Returns all URLs that is found on `url` in which it belongs to the same website
-	"""
-
 	urls = set()
 	internal_urls = set()
 	external_urls = set()
@@ -64,7 +53,7 @@ def filter(href,url):
 		return False
 	if href in pages :
 		return False
-	filters = ["Category","Wikipedia","ISBN","Special","File","index","Aide","Portail","Glossaire","Recherche","Wikip%C3%A9dia","Accueil","Fichier"]
+	global filters
 	res = True
 	for filter in filters :
 		if filter in href :
@@ -82,8 +71,6 @@ def add_to_pages(url,urls):
 		text+="[["+str(get_title(link))+"]]\n"
 	global pages
 	pages[url] = text
-	
-
 
 def crawl(url, max_urls):
 	"""
@@ -100,7 +87,7 @@ def crawl(url, max_urls):
 	for link in links:
 		if total_urls_visited > max_urls:
 			break
-		crawl(link, max_urls=max_urls)
+		crawl(link, max_urls)
 	
 
 if __name__ == "__main__":
