@@ -104,8 +104,8 @@ def crawl(url, max_urls):
 	
 
 if __name__ == "__main__":
-	max_urls=5
-	crawl("https://fr.wikipedia.org/wiki/Informatique",max_urls)
+	max_urls=100
+	crawl("https://www.youtube.com/",max_urls)
 	shutil.rmtree("Logs")
 	os.makedirs("Logs")
 	for key in pages :
