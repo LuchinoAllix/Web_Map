@@ -12,7 +12,9 @@ GRAY = colorama.Fore.LIGHTBLACK_EX
 RESET = colorama.Fore.RESET
 YELLOW = colorama.Fore.YELLOW
 
+# Variables globales
 pages = {}
+total_urls_visited = 0
 
 # Source :
 # https://thepythoncode.com/article/extract-all-website-links-python
@@ -41,12 +43,9 @@ def get_links(url,choice="all"):
 		href = parsed_href.scheme + "://" + parsed_href.netloc + parsed_href.path
 		if filter(href,url):
 			if domain_name not in href:
-				# external link
 				if href not in external_urls:
-					#print(f"{GRAY}[!] External link: {href}{RESET}")
 					external_urls.add(href)
 			elif href not in internal_urls:
-				#print(f"{GREEN}[*] Internal link: {href}{RESET}")
 				internal_urls.add(href)
 			urls.add(href)
 
@@ -65,7 +64,7 @@ def filter(href,url):
 		return False
 	if href in pages :
 		return False
-	filters = ["Category","Wikipedia","ISBN","Special","File","index"]
+	filters = ["Category","Wikipedia","ISBN","Special","File","index","Aide","Portail","Glossaire","Recherche","Wikip%C3%A9dia","Accueil","Fichier"]
 	res = True
 	for filter in filters :
 		if filter in href :
@@ -84,19 +83,18 @@ def add_to_pages(url,urls):
 	global pages
 	pages[url] = text
 	
-# number of urls visited so far will be stored here
-total_urls_visited = 0
+
 
 def crawl(url, max_urls):
 	"""
 	Crawls a web page and extracts all links.
 	You'll find all links in `external_urls` and `internal_urls` global set variables.
 	params:
-		max_urls (int): number of max urls to crawl, default is 30.
+		max_urls (int): number of max urls to crawl
 	"""
 	global total_urls_visited
 	total_urls_visited += 1
-	print(f"{YELLOW}[*] Crawling: {url}{RESET}")
+	print("- Crawling: "+ url)
 	links = get_links(url,"intern")
 	add_to_pages(url,links)
 	for link in links:
@@ -106,11 +104,11 @@ def crawl(url, max_urls):
 	
 
 if __name__ == "__main__":
-	max_urls=100
-	crawl("https://en.wikipedia.org/wiki/Second_War_of_Scottish_Independence",max_urls)
+	max_urls=5
+	crawl("https://fr.wikipedia.org/wiki/Informatique",max_urls)
 	shutil.rmtree("Logs")
 	os.makedirs("Logs")
 	for key in pages :
-		with open("logs/"+get_title(key)+".md","w") as file:
+		with open("logs/"+get_title(key)+".md","w",encoding="UTF8") as file:
 			file.write(pages[key])
 
