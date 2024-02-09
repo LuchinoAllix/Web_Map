@@ -4,7 +4,7 @@
  Résultats
  
  ![t1](img\test1.png)
-  ![t2](img\test2.png)
+  ![t1.2](img\test1.2.png)
 
   Il y a beaucoup de chose qui peuevent être modifiée (prendre les liens les plus "intéressants", rajouter des filtres...)
 
