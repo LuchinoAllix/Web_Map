@@ -1,0 +1,8 @@
+[[Johnny Depp]]
+[[Anne Hathaway]]
+[[Helena Bonham Carter]]
+[[Alan Rickman]]
+[[Christopher Lee]]
+[[Natalie Portman]]
+[[Hugo Weaving]]
+[[John Hurt]]

@@ -1,0 +1,6 @@
+[[Octavia Spencer]]
+[[Emma Stone]]
+[[Jake Gyllenhaal]]
+[[Hugh Jackman]]
+[[Peter Dinklage]]
+[[Hunter Schafer]]

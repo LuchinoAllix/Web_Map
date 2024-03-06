@@ -1,0 +1,7 @@
+[[Christoph Waltz]]
+[[Edward Norton]]
+[[Viggo Mortensen]]
+[[Linda Cardellini]]
+[[Bradley Cooper]]
+[[Ryan Gosling]]
+[[Rose Byrne]]

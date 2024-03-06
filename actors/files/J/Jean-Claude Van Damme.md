@@ -1,0 +1,8 @@
+[[Sylvester Stallone]]
+[[Bruce Willis]]
+[[Jason Statham]]
+[[Terry Crews]]
+[[Arnold Schwarzenegger]]
+[[Liam Hemsworth]]
+[[Dolph Lundgren]]
+[[Chuck Norris]]

@@ -1,0 +1,8 @@
+[[Michael Shannon]]
+[[Viola Davis]]
+[[Emma Stone]]
+[[Kevin Costner]]
+[[Kirsten Dunst]]
+[[Jim Parsons]]
+[[Idris Elba]]
+[[J. K. Simmons]]

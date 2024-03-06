@@ -1,0 +1,6 @@
+[[Morgan Freeman]]
+[[Famke Janssen]]
+[[Samuel L. Jackson]]
+[[Uma Thurman]]
+[[Harvey Keitel]]
+[[Bruce Willis]]

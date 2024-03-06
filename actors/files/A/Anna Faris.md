@@ -1,0 +1,2 @@
+[[Emma Stone]]
+[[Kat Dennings]]

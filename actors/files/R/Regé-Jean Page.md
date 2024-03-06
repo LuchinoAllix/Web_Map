@@ -1,0 +1,6 @@
+[[Ryan Gosling]]
+[[Chris Evans]]
+[[Ana de Armas]]
+[[Chris Pine]]
+[[Hugh Grant]]
+[[Hugo Weaving]]

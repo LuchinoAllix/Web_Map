@@ -1,0 +1,7 @@
+[[Christian Bale]]
+[[Morgan Freeman]]
+[[Michael Caine]]
+[[Gary Oldman]]
+[[Maggie Gyllenhaal]]
+[[Aaron Eckhart]]
+[[Cillian Murphy]]

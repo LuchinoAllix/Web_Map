@@ -1,0 +1,8 @@
+[[Benedict Cumberbatch]]
+[[Colin Firth]]
+[[Mark Strong]]
+[[Idris Elba]]
+[[Angelina Jolie]]
+[[Gemma Chan]]
+[[Kit Harrington]]
+[[Kumail Nanjiani]]
